@@ -80,47 +80,286 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
         
-        /* Light Mode */
+        /* Light Mode - Complete Theme Override */
         html:not(.dark) body {
-            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 50%, #bcccdc 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
             color: #1a202c;
         }
         
-        html:not(.dark) .dark-bg {
-            background: rgba(255, 255, 255, 0.9) !important;
+        html:not(.dark) .gradient-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c) !important;
+            background-size: 400% 400% !important;
         }
         
-        html:not(.dark) .dark-text {
-            color: #1a202c !important;
+        html:not(.dark) .tech-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px) !important;
         }
         
-        html:not(.dark) .dark-card {
-            background: rgba(255, 255, 255, 0.95) !important;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        /* Navigation in Light Mode */
+        html:not(.dark) .nav-bg {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        html:not(.dark) nav a,
+        html:not(.dark) nav li a,
+        html:not(.dark) .nav-link {
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) .nav-link:hover {
+            color: #ffd700 !important;
+        }
+        
+        /* Hero Section Light Mode */
+        html:not(.dark) #home p,
+        html:not(.dark) #home span:not(.gradient-text) {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        html:not(.dark) h1, 
+        html:not(.dark) h2, 
+        html:not(.dark) h3, 
+        html:not(.dark) h4 {
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) .gradient-text {
+            background: linear-gradient(135deg, #ffd700 0%, #ffffff 50%, #ffd700 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        
+        /* Cards and Boxes Light Mode */
+        html:not(.dark) .service-card {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        html:not(.dark) .service-card h3 {
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) .service-card p,
+        html:not(.dark) .service-card li {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        
+        html:not(.dark) .service-card:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 60px rgba(255, 215, 0, 0.3) !important;
         }
         
         html:not(.dark) .glow-border {
-            background: linear-gradient(#ffffff, #ffffff) padding-box,
-                        linear-gradient(135deg, #00f0ff, #7b2cbf, #ff00ff) border-box !important;
+            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
+                        linear-gradient(135deg, #ffd700, #ffffff, #ffd700) border-box !important;
+            backdrop-filter: blur(10px) !important;
         }
         
-        html:not(.dark) .nav-bg {
-            background: rgba(255, 255, 255, 0.9) !important;
+        html:not(.dark) .dark-card {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
         }
         
+        /* Text Colors Light Mode */
         html:not(.dark) .text-gray-300,
         html:not(.dark) .text-gray-400,
         html:not(.dark) .text-gray-500 {
-            color: #4a5568 !important;
+            color: rgba(255, 255, 255, 0.85) !important;
         }
         
-        html:not(.dark) .form-input {
-            background: rgba(0, 0, 0, 0.05) !important;
+        html:not(.dark) .text-gray-600 {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        html:not(.dark) p {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        html:not(.dark) label {
+            color: #ffffff !important;
+        }
+        
+        /* Social Icons Light Mode */
+        html:not(.dark) .social-icon {
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) .social-icon:hover {
+            background: #ffd700 !important;
+            border-color: #ffd700 !important;
             color: #1a202c !important;
         }
         
+        /* Form Inputs Light Mode */
+        html:not(.dark) .form-input {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+        
+        html:not(.dark) .form-input:focus {
+            border-color: #ffd700 !important;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+        }
+        
+        /* Buttons Light Mode */
+        html:not(.dark) .cyber-btn {
+            background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
+            color: #1a202c !important;
+        }
+        
+        html:not(.dark) .cyber-btn:hover {
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5) !important;
+        }
+        
+        html:not(.dark) a.border-cyber-primary {
+            border-color: #ffffff !important;
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) a.border-cyber-primary:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        /* Section Backgrounds Light Mode */
+        html:not(.dark) .dark-bg,
+        html:not(.dark) .bg-cyber-darker\/50 {
+            background: rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        /* Skills Section Light Mode */
+        html:not(.dark) .skill-bar {
+            background: linear-gradient(90deg, #ffd700, #ffffff) !important;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+        }
+        
+        html:not(.dark) .bg-cyber-dark {
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        /* Info Cards Light Mode */
+        html:not(.dark) .glow-border div {
+            color: #ffffff !important;
+        }
+        
+        /* Portfolio Items Light Mode */
+        html:not(.dark) .service-card .aspect-video {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+        }
+        
+        html:not(.dark) .service-card span {
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+        }
+        
+        /* Contact Section Light Mode */
+        html:not(.dark) .bg-cyber-primary\/20,
+        html:not(.dark) .bg-cyber-secondary\/20,
+        html:not(.dark) .bg-cyber-accent\/20,
+        html:not(.dark) .bg-green-500\/20,
+        html:not(.dark) .bg-blue-600\/20,
+        html:not(.dark) .bg-sky-500\/20,
+        html:not(.dark) .bg-red-500\/20 {
+            background: rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        html:not(.dark) .text-cyber-primary,
+        html:not(.dark) .text-cyber-secondary,
+        html:not(.dark) .text-cyber-accent,
+        html:not(.dark) .text-green-400,
+        html:not(.dark) .text-yellow-400,
+        html:not(.dark) .text-red-400,
+        html:not(.dark) .text-blue-400 {
+            color: #ffd700 !important;
+        }
+        
+        /* Footer Light Mode */
+        html:not(.dark) footer {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        html:not(.dark) footer p {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        /* Mobile Menu Light Mode */
+        html:not(.dark) .mobile-menu {
+            background: rgba(102, 126, 234, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+        }
+        
+        html:not(.dark) .mobile-menu a {
+            color: #ffffff !important;
+        }
+        
+        html:not(.dark) .mobile-menu a:hover {
+            color: #ffd700 !important;
+        }
+        
+        /* 3D Canvas Light Mode */
         html:not(.dark) #bg-canvas {
-            opacity: 0.3;
+            opacity: 0.4 !important;
+        }
+        
+        html:not(.dark) #desk-scene {
+            opacity: 0.9;
+        }
+        
+        /* Back to Top Button Light Mode */
+        html:not(.dark) #backToTop {
+            background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
+            color: #1a202c !important;
+        }
+        
+        /* Scrollbar Light Mode */
+        html:not(.dark) ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        html:not(.dark) ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ffd700, #ffffff) !important;
+        }
+        
+        /* Loader Light Mode */
+        html:not(.dark) .loader {
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+        }
+        
+        /* Profile Image Light Mode */
+        html:not(.dark) .profile-3d::before {
+            background: linear-gradient(135deg, #ffd700, #ffffff, #ffd700, #ffffff) !important;
+        }
+        
+        html:not(.dark) .profile-3d-inner {
+            border-color: #ffd700 !important;
+        }
+        
+        html:not(.dark) .glow-box {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Glitch Effect Light Mode */
+        html:not(.dark) .glitch::before {
+            color: #ffd700 !important;
+        }
+        
+        html:not(.dark) .glitch::after {
+            color: #ffffff !important;
+        }
+        
+        /* Particles Light Mode */
+        html:not(.dark) .particle {
+            background: #ffffff !important;
         }
         
         /* Custom Scrollbar */
@@ -234,11 +473,7 @@
             background: linear-gradient(-45deg, #0a0a0f, #1a1a2e, #16213e, #0f3460);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
-        }
-        
-        html:not(.dark) .gradient-bg {
-            background: linear-gradient(-45deg, #f0f4f8, #e2e8f0, #cbd5e0, #a0aec0);
-            background-size: 400% 400%;
+            transition: background 0.5s ease;
         }
         
         @keyframes gradient {
@@ -270,7 +505,8 @@
         }
         
         html:not(.dark) .service-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(20px) !important;
         }
         
         .service-card:hover {
@@ -345,12 +581,6 @@
                 linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
-        }
-        
-        html:not(.dark) .tech-grid {
-            background-image: 
-                linear-gradient(rgba(123, 44, 191, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(123, 44, 191, 0.05) 1px, transparent 1px);
         }
         
         /* Skill Bar */
