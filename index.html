@@ -69,49 +69,55 @@
         
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
-        /* Dark Mode (Default) */
+        /* Dark Mode (Default) - Cyberpunk Neon Theme */
         body {
             font-family: 'Poppins', sans-serif;
-            background: #0a0a0f;
+            background: linear-gradient(135deg, #0a0a0f 0%, #0d0d1a 25%, #12121f 50%, #0a0a0f 100%) !important;
             color: #ffffff;
             overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
+            transition: background 0.5s ease, color 0.5s ease;
         }
         
-        /* Light Mode - Dark Background with Amber Accent */
+        .dark body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #0d0d1a 25%, #12121f 50%, #0a0a0f 100%) !important;
+        }
+        
+        /* Light Mode - Vibrant Purple/Blue Gradient Theme */
         html:not(.dark) body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
-            color: #e0e0e0;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d1b4e 25%, #4a1942 50%, #1e3a5f 100%) !important;
+            color: #f0f0f0;
         }
         
         html:not(.dark) .gradient-bg {
-            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e) !important;
+            background: linear-gradient(-45deg, #1e3a5f, #2d1b4e, #4a1942, #1e3a5f) !important;
             background-size: 400% 400% !important;
         }
         
         html:not(.dark) .tech-grid {
             background-image: 
-                linear-gradient(rgba(205, 133, 63, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(205, 133, 63, 0.05) 1px, transparent 1px) !important;
+                linear-gradient(rgba(255, 105, 180, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 105, 180, 0.08) 1px, transparent 1px) !important;
         }
         
         /* Navigation in Light Mode */
         html:not(.dark) .nav-bg {
-            background: rgba(26, 26, 46, 0.9) !important;
+            background: rgba(30, 20, 50, 0.95) !important;
             backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(205, 133, 63, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.4) !important;
         }
         
         html:not(.dark) nav a,
         html:not(.dark) nav li a,
         html:not(.dark) .nav-link {
-            color: #e0e0e0 !important;
+            color: #f0f0f0 !important;
         }
         
         html:not(.dark) .nav-link:hover {
-            color: #cd853f !important;
+            color: #ff69b4 !important;
         }
         
         /* Hero Section Light Mode */
@@ -128,40 +134,40 @@
         }
         
         html:not(.dark) .gradient-text {
-            background: linear-gradient(135deg, #cd853f 0%, #daa520 50%, #b8860b 100%) !important;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #da70d6 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
         }
         
         /* Cards and Boxes Light Mode */
         html:not(.dark) .service-card {
-            background: rgba(22, 33, 62, 0.8) !important;
+            background: rgba(30, 20, 50, 0.85) !important;
             backdrop-filter: blur(20px) !important;
-            border: 1px solid rgba(205, 133, 63, 0.3) !important;
+            border: 1px solid rgba(255, 105, 180, 0.3) !important;
         }
         
         html:not(.dark) .service-card h3 {
-            color: #e0e0e0 !important;
+            color: #f0f0f0 !important;
         }
         
         html:not(.dark) .service-card p,
         html:not(.dark) .service-card li {
-            color: rgba(224, 224, 224, 0.8) !important;
+            color: rgba(240, 240, 240, 0.85) !important;
         }
         
         html:not(.dark) .service-card:hover {
-            background: rgba(22, 33, 62, 0.95) !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(205, 133, 63, 0.3) !important;
+            background: rgba(30, 20, 50, 0.95) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 105, 180, 0.4) !important;
         }
         
         html:not(.dark) .glow-border {
-            background: linear-gradient(rgba(22, 33, 62, 0.8), rgba(22, 33, 62, 0.8)) padding-box,
-                        linear-gradient(135deg, #cd853f, #daa520, #b8860b) border-box !important;
+            background: linear-gradient(rgba(30, 20, 50, 0.85), rgba(30, 20, 50, 0.85)) padding-box,
+                        linear-gradient(135deg, #ff69b4, #ff1493, #da70d6) border-box !important;
             backdrop-filter: blur(10px) !important;
         }
         
         html:not(.dark) .dark-card {
-            background: rgba(22, 33, 62, 0.8) !important;
+            background: rgba(30, 20, 50, 0.85) !important;
             backdrop-filter: blur(20px) !important;
         }
         
@@ -169,97 +175,97 @@
         html:not(.dark) .text-gray-300,
         html:not(.dark) .text-gray-400,
         html:not(.dark) .text-gray-500 {
-            color: rgba(224, 224, 224, 0.85) !important;
+            color: rgba(240, 240, 240, 0.85) !important;
         }
         
         html:not(.dark) .text-gray-600 {
-            color: rgba(224, 224, 224, 0.7) !important;
+            color: rgba(240, 240, 240, 0.7) !important;
         }
         
         html:not(.dark) p {
-            color: rgba(224, 224, 224, 0.9) !important;
+            color: rgba(240, 240, 240, 0.9) !important;
         }
         
         html:not(.dark) label {
-            color: #e0e0e0 !important;
+            color: #f0f0f0 !important;
         }
         
         /* Social Icons Light Mode */
         html:not(.dark) .social-icon {
-            border-color: rgba(205, 133, 63, 0.5) !important;
-            color: #cd853f !important;
+            border-color: rgba(255, 105, 180, 0.5) !important;
+            color: #ff69b4 !important;
         }
         
         html:not(.dark) .social-icon:hover {
-            background: #cd853f !important;
-            border-color: #cd853f !important;
+            background: #ff69b4 !important;
+            border-color: #ff69b4 !important;
             color: #1a1a2e !important;
         }
         
         /* Form Inputs Light Mode */
         html:not(.dark) .form-input {
-            background: rgba(22, 33, 62, 0.8) !important;
-            border: 1px solid rgba(205, 133, 63, 0.3) !important;
-            color: #e0e0e0 !important;
+            background: rgba(30, 20, 50, 0.85) !important;
+            border: 1px solid rgba(255, 105, 180, 0.3) !important;
+            color: #f0f0f0 !important;
         }
         
         html:not(.dark) .form-input::placeholder {
-            color: rgba(224, 224, 224, 0.5) !important;
+            color: rgba(240, 240, 240, 0.5) !important;
         }
         
         html:not(.dark) .form-input:focus {
-            border-color: #cd853f !important;
-            box-shadow: 0 0 20px rgba(205, 133, 63, 0.4) !important;
+            border-color: #ff69b4 !important;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4) !important;
         }
         
         /* Buttons Light Mode */
         html:not(.dark) .cyber-btn {
-            background: linear-gradient(135deg, #cd853f, #b8860b) !important;
-            color: #1a1a2e !important;
+            background: linear-gradient(135deg, #ff69b4, #ff1493) !important;
+            color: #ffffff !important;
         }
         
         html:not(.dark) .cyber-btn:hover {
-            box-shadow: 0 10px 30px rgba(205, 133, 63, 0.5) !important;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5) !important;
         }
         
         html:not(.dark) a.border-cyber-primary {
-            border-color: #cd853f !important;
-            color: #cd853f !important;
+            border-color: #ff69b4 !important;
+            color: #ff69b4 !important;
         }
         
         html:not(.dark) a.border-cyber-primary:hover {
-            background: rgba(205, 133, 63, 0.2) !important;
+            background: rgba(255, 105, 180, 0.2) !important;
         }
         
         /* Section Backgrounds Light Mode */
         html:not(.dark) .dark-bg,
         html:not(.dark) .bg-cyber-darker\/50 {
-            background: rgba(15, 52, 96, 0.5) !important;
+            background: rgba(45, 27, 78, 0.6) !important;
         }
         
         /* Skills Section Light Mode */
         html:not(.dark) .skill-bar {
-            background: linear-gradient(90deg, #cd853f, #daa520) !important;
-            box-shadow: 0 0 20px rgba(205, 133, 63, 0.5) !important;
+            background: linear-gradient(90deg, #ff69b4, #ff1493) !important;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5) !important;
         }
         
         html:not(.dark) .bg-cyber-dark {
-            background: rgba(22, 33, 62, 0.6) !important;
+            background: rgba(30, 20, 50, 0.6) !important;
         }
         
         /* Info Cards Light Mode */
         html:not(.dark) .glow-border div {
-            color: #e0e0e0 !important;
+            color: #f0f0f0 !important;
         }
         
         /* Portfolio Items Light Mode */
         html:not(.dark) .service-card .aspect-video {
-            background: linear-gradient(135deg, rgba(205, 133, 63, 0.2), rgba(184, 134, 11, 0.1)) !important;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(218, 112, 214, 0.1)) !important;
         }
         
         html:not(.dark) .service-card span {
-            background: rgba(205, 133, 63, 0.2) !important;
-            color: #cd853f !important;
+            background: rgba(255, 105, 180, 0.2) !important;
+            color: #ff69b4 !important;
         }
         
         /* Contact Section Light Mode */
@@ -270,7 +276,7 @@
         html:not(.dark) .bg-blue-600\/20,
         html:not(.dark) .bg-sky-500\/20,
         html:not(.dark) .bg-red-500\/20 {
-            background: rgba(205, 133, 63, 0.15) !important;
+            background: rgba(255, 105, 180, 0.15) !important;
         }
         
         html:not(.dark) .text-cyber-primary,
@@ -280,30 +286,30 @@
         html:not(.dark) .text-yellow-400,
         html:not(.dark) .text-red-400,
         html:not(.dark) .text-blue-400 {
-            color: #cd853f !important;
+            color: #ff69b4 !important;
         }
         
         /* Footer Light Mode */
         html:not(.dark) footer {
-            border-color: rgba(205, 133, 63, 0.3) !important;
+            border-color: rgba(255, 105, 180, 0.3) !important;
         }
         
         html:not(.dark) footer p {
-            color: rgba(224, 224, 224, 0.8) !important;
+            color: rgba(240, 240, 240, 0.8) !important;
         }
         
         /* Mobile Menu Light Mode */
         html:not(.dark) .mobile-menu {
-            background: rgba(26, 26, 46, 0.98) !important;
+            background: rgba(30, 20, 50, 0.98) !important;
             backdrop-filter: blur(20px) !important;
         }
         
         html:not(.dark) .mobile-menu a {
-            color: #e0e0e0 !important;
+            color: #f0f0f0 !important;
         }
         
         html:not(.dark) .mobile-menu a:hover {
-            color: #cd853f !important;
+            color: #ff69b4 !important;
         }
         
         /* 3D Canvas Light Mode */
@@ -317,49 +323,49 @@
         
         /* Back to Top Button Light Mode */
         html:not(.dark) #backToTop {
-            background: linear-gradient(135deg, #cd853f, #b8860b) !important;
-            color: #1a1a2e !important;
+            background: linear-gradient(135deg, #ff69b4, #ff1493) !important;
+            color: #ffffff !important;
         }
         
         /* Scrollbar Light Mode */
         html:not(.dark) ::-webkit-scrollbar-track {
-            background: rgba(22, 33, 62, 0.8) !important;
+            background: rgba(30, 20, 50, 0.8) !important;
         }
         
         html:not(.dark) ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #cd853f, #b8860b) !important;
+            background: linear-gradient(180deg, #ff69b4, #ff1493) !important;
         }
         
         /* Loader Light Mode */
         html:not(.dark) .loader {
-            background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+            background: linear-gradient(135deg, #1e3a5f, #2d1b4e) !important;
         }
         
         /* Profile Image Light Mode */
         html:not(.dark) .profile-3d::before {
-            background: linear-gradient(135deg, #cd853f, #daa520, #b8860b, #cd853f) !important;
+            background: linear-gradient(135deg, #ff69b4, #ff1493, #da70d6, #ff69b4) !important;
         }
         
         html:not(.dark) .profile-3d-inner {
-            border-color: #cd853f !important;
+            border-color: #ff69b4 !important;
         }
         
         html:not(.dark) .glow-box {
-            box-shadow: 0 0 30px rgba(205, 133, 63, 0.5), 0 0 60px rgba(184, 134, 11, 0.3) !important;
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.5), 0 0 60px rgba(218, 112, 214, 0.3) !important;
         }
         
         /* Glitch Effect Light Mode */
         html:not(.dark) .glitch::before {
-            color: #cd853f !important;
+            color: #ff69b4 !important;
         }
         
         html:not(.dark) .glitch::after {
-            color: #daa520 !important;
+            color: #da70d6 !important;
         }
         
         /* Particles Light Mode */
         html:not(.dark) .particle {
-            background: #cd853f !important;
+            background: #ff69b4 !important;
         }
         
         /* Custom Scrollbar */
@@ -369,10 +375,6 @@
         
         ::-webkit-scrollbar-track {
             background: #0a0a0f;
-        }
-        
-        html:not(.dark) ::-webkit-scrollbar-track {
-            background: #e2e8f0;
         }
         
         ::-webkit-scrollbar-thumb {
@@ -403,6 +405,55 @@
         @media (max-width: 768px) {
             #desk-scene {
                 height: 300px;
+            }
+            
+            /* Mobile overflow prevention */
+            section {
+                overflow-x: hidden;
+            }
+            
+            .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Prevent hero elements from causing overflow */
+            .profile-3d {
+                max-width: 100%;
+            }
+            
+            .desk-scene-container {
+                max-width: 100%;
+                overflow: hidden;
+            }
+            
+            /* Fix floating shapes on mobile */
+            .particle {
+                display: none;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .text-3xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.75rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 2rem !important;
+            }
+            
+            .profile-3d {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            
+            #desk-scene {
+                height: 250px;
             }
         }
         
@@ -441,8 +492,6 @@
             border: 2px solid;
             border-image: linear-gradient(135deg, #00f0ff, #7b2cbf, #ff00ff) 1;
             border-radius: 20px;
-        }
-            transition: background 0.5s ease;
         }
         
         /* Profile Image 3D Effect */
@@ -494,10 +543,14 @@
         
         /* Animated Gradient Background */
         .gradient-bg {
-            background: linear-gradient(-45deg, #0a0a0f, #1a1a2e, #16213e, #0f3460);
+            background: linear-gradient(-45deg, #0a0a0f, #0d0d1a, #12121f, #0a0a0f) !important;
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             transition: background 0.5s ease;
+        }
+        
+        .dark .gradient-bg {
+            background: linear-gradient(-45deg, #0a0a0f, #0d0d1a, #12121f, #0a0a0f) !important;
         }
         
         @keyframes gradient {
@@ -662,8 +715,8 @@
         }
         
         html:not(.dark) .theme-toggle {
-            background: linear-gradient(135deg, #cd853f, #b8860b);
-            border-color: #b8860b;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border-color: #ff1493;
         }
         
         .theme-toggle-circle {
