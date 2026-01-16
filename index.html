@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ko Thant Zin - Multi-Specialist in Networking, Design & Computer Training in Tachileik">
+    <meta name="keywords" content="Ko Thant Zin, IT Specialist, Networking, Photoshop, Computer Training, Tachileik">
+    <meta name="author" content="Ko Thant Zin">
+    <title>Ko Thant Zin | IT Specialist & Tech Instructor</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'cyber': {
+                            'primary': '#00f0ff',
+                            'secondary': '#7b2cbf',
+                            'accent': '#ff00ff',
+                            'dark': '#0a0a0f',
+                            'darker': '#050508',
+                        }
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00f0ff, #7b2cbf);
+            border-radius: 10px;
+        }
+        
+        /* Three.js Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* Glowing Effects */
+        .glow-text {
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #7b2cbf;
+        }
+        
+        .glow-box {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 40px rgba(123, 44, 191, 0.2);
+        }
+        
+        .glow-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#0a0a0f, #0a0a0f) padding-box,
+                        linear-gradient(135deg, #00f0ff, #7b2cbf, #ff00ff) border-box;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00f0ff 0%, #7b2cbf 50%, #ff00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Animated Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0a0a0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff; }
+            to { text-shadow: 0 0 20px #00f0ff, 0 0 30px #7b2cbf, 0 0 40px #ff00ff; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(0, 240, 255, 0.8), 0 0 60px rgba(123, 44, 191, 0.5); }
+        }
+        
+        /* Typing Effect */
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #00f0ff;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #00f0ff; }
+        }
+        
+        /* Card Hover Effects */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.3), 0 0 60px rgba(123, 44, 191, 0.2);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, #00f0ff, #7b2cbf, #ff00ff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Social Icons */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00f0ff, #7b2cbf);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: #00f0ff;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Tech Grid Pattern */
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* Skill Bar */
+        .skill-bar {
+            background: linear-gradient(90deg, #00f0ff, #7b2cbf);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            transition: width 1.5s ease-in-out;
+        }
+        
+        /* Contact Form */
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #00f0ff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            outline: none;
+        }
+        
+        /* Button */
+        .cyber-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cyber-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-circle {
+            width: 80px;
+            height: 80px;
+            border: 3px solid transparent;
+            border-top-color: #00f0ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loader-circle::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 3px solid transparent;
+            border-top-color: #7b2cbf;
+            border-radius: 50%;
+            animation: spin 2s linear infinite reverse;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            animation: glitch-1 0.3s infinite linear alternate-reverse;
+            color: #ff00ff;
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-2 0.3s infinite linear alternate-reverse;
+            color: #00f0ff;
+            z-index: -2;
+        }
+        
+        @keyframes glitch-1 {
+            0% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
+            20% { clip-path: inset(10% 0 70% 0); transform: translate(3px, 0); }
+            40% { clip-path: inset(50% 0 30% 0); transform: translate(-3px, 0); }
+            60% { clip-path: inset(30% 0 50% 0); transform: translate(3px, 0); }
+            80% { clip-path: inset(70% 0 10% 0); transform: translate(-3px, 0); }
+            100% { clip-path: inset(40% 0 40% 0); transform: translate(3px, 0); }
+        }
+        
+        @keyframes glitch-2 {
+            0% { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0); }
+            20% { clip-path: inset(70% 0 10% 0); transform: translate(-3px, 0); }
+            40% { clip-path: inset(30% 0 50% 0); transform: translate(3px, 0); }
+            60% { clip-path: inset(50% 0 30% 0); transform: translate(-3px, 0); }
+            80% { clip-path: inset(10% 0 70% 0); transform: translate(3px, 0); }
+            100% { clip-path: inset(40% 0 40% 0); transform: translate(-3px, 0); }
+        }
+    </style>
+</head>
+<body class="gradient-bg tech-grid">
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle relative"></div>
+    </div>
+    
+    <!-- Three.js Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-lg bg-cyber-dark/50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-orbitron text-2xl font-bold gradient-text">KTZ</a>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="nav-link font-medium hover:text-cyber-primary">Home</a></li>
+                <li><a href="#about" class="nav-link font-medium hover:text-cyber-primary">About</a></li>
+                <li><a href="#services" class="nav-link font-medium hover:text-cyber-primary">Services</a></li>
+                <li><a href="#skills" class="nav-link font-medium hover:text-cyber-primary">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link font-medium hover:text-cyber-primary">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link font-medium hover:text-cyber-primary">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 right-0 w-64 h-full bg-cyber-darker/95 backdrop-blur-lg z-50 p-6" id="mobileMenu">
+        <button class="absolute top-6 right-6 text-2xl" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mt-16 space-y-6">
+            <li><a href="#home" class="block text-lg hover:text-cyber-primary transition">Home</a></li>
+            <li><a href="#about" class="block text-lg hover:text-cyber-primary transition">About</a></li>
+            <li><a href="#services" class="block text-lg hover:text-cyber-primary transition">Services</a></li>
+            <li><a href="#skills" class="block text-lg hover:text-cyber-primary transition">Skills</a></li>
+            <li><a href="#portfolio" class="block text-lg hover:text-cyber-primary transition">Portfolio</a></li>
+            <li><a href="#contact" class="block text-lg hover:text-cyber-primary transition">Contact</a></li>
+        </ul>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-6">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="particle w-2 h-2 top-1/4 left-1/4 opacity-50" style="animation-delay: 0s;"></div>
+            <div class="particle w-3 h-3 top-1/3 right-1/4 opacity-30" style="animation-delay: 1s;"></div>
+            <div class="particle w-2 h-2 bottom-1/4 left-1/3 opacity-40" style="animation-delay: 2s;"></div>
+            <div class="particle w-4 h-4 top-1/2 right-1/3 opacity-20" style="animation-delay: 3s;"></div>
+        </div>
+        
+        <div class="text-center z-10 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+            <div class="mb-8 relative inline-block">
+                <div class="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-cyber-primary glow-box mx-auto" style="animation: pulse-glow 3s ease-in-out infinite;">
+                    <div class="w-full h-full bg-gradient-to-br from-cyber-primary via-cyber-secondary to-cyber-accent flex items-center justify-center">
+                        <span class="text-6xl md:text-7xl font-orbitron font-bold">TZ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-cyber-primary font-medium mb-4 tracking-widest" data-aos="fade-up" data-aos-delay="200">WELCOME TO MY DIGITAL SPACE</p>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-orbitron font-bold mb-6 glitch" data-text="KO THANT ZIN" data-aos="fade-up" data-aos-delay="300">
+                <span class="gradient-text">KO THANT ZIN</span>
+            </h1>
+            
+            <div class="h-8 md:h-10 mb-8 overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                <p class="text-xl md:text-2xl text-gray-300" id="typingText"></p>
+            </div>
+            
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="500">
+                Multi-Specialist in <span class="text-cyber-primary">Networking</span>, 
+                <span class="text-cyber-secondary">Photoshop Design</span> & 
+                <span class="text-cyber-accent">Computer Training</span> | Tachileik
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="600">
+                <a href="#contact" class="cyber-btn px-8 py-3 bg-gradient-to-r from-cyber-primary to-cyber-secondary rounded-full font-semibold text-cyber-dark hover:shadow-lg hover:shadow-cyber-primary/50 transition-all">
+                    <i class="fas fa-envelope mr-2"></i>Get In Touch
+                </a>
+                <a href="#services" class="cyber-btn px-8 py-3 border-2 border-cyber-primary rounded-full font-semibold hover:bg-cyber-primary/10 transition-all">
+                    <i class="fas fa-laptop-code mr-2"></i>View Services
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6" data-aos="fade-up" data-aos-delay="700">
+                <a href="https://www.facebook.com/thantzin27oo" target="_blank" class="social-icon w-12 h-12 rounded-full border border-cyber-primary/50 flex items-center justify-center text-cyber-primary hover:bg-cyber-primary hover:text-cyber-dark">
+                    <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="https://t.me/Thant2Zin7" target="_blank" class="social-icon w-12 h-12 rounded-full border border-cyber-primary/50 flex items-center justify-center text-cyber-primary hover:bg-cyber-primary hover:text-cyber-dark">
+                    <i class="fab fa-telegram-plane text-xl"></i>
+                </a>
+                <a href="mailto:thurein505tzo@gmail.com" class="social-icon w-12 h-12 rounded-full border border-cyber-primary/50 flex items-center justify-center text-cyber-primary hover:bg-cyber-primary hover:text-cyber-dark">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="tel:+9509787141083" class="social-icon w-12 h-12 rounded-full border border-cyber-primary/50 flex items-center justify-center text-cyber-primary hover:bg-cyber-primary hover:text-cyber-dark">
+                    <i class="fas fa-phone text-xl"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2" data-aos="fade-up" data-aos-delay="800">
+            <a href="#about" class="flex flex-col items-center text-cyber-primary animate-bounce">
+                <span class="text-sm mb-2">Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4">
+                    <span class="gradient-text">About Me</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="glow-border rounded-2xl p-1">
+                        <div class="bg-cyber-darker rounded-2xl p-8">
+                            <div class="w-full aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-cyber-primary/20 via-cyber-secondary/20 to-cyber-accent/20 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-user-tie text-8xl gradient-text mb-4"></i>
+                                    <p class="text-xl font-orbitron text-cyber-primary">Tech Specialist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-cyber-primary/20 rounded-full flex items-center justify-center" style="animation: float 4s ease-in-out infinite;">
+                        <i class="fas fa-network-wired text-2xl text-cyber-primary"></i>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-cyber-secondary/20 rounded-full flex items-center justify-center" style="animation: float 5s ease-in-out infinite 1s;">
+                        <i class="fas fa-palette text-2xl text-cyber-secondary"></i>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">
+                        Hello! I'm <span class="text-cyber-primary">Ko Thant Zin</span>
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I am a passionate multi-specialist based in <span class="text-cyber-primary font-semibold">Tachileik, Myanmar</span>, 
+                        with expertise spanning across multiple domains of technology. With years of hands-on experience, 
+                        I have dedicated myself to providing top-notch services in networking solutions, creative design, 
+                        and computer education.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        My mission is to bridge the digital divide by sharing knowledge and empowering individuals 
+                        and businesses with cutting-edge technology solutions. Whether you need network infrastructure, 
+                        stunning graphic designs, or comprehensive IT training, I'm here to help you succeed.
+                    </p>
+                    
+                    <!-- Info Cards -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="glow-border rounded-xl p-4 text-center">
+                            <div class="text-3xl font-orbitron font-bold text-cyber-primary mb-1">5+</div>
+                            <div class="text-sm text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center">
+                            <div class="text-3xl font-orbitron font-bold text-cyber-secondary mb-1">100+</div>
+                            <div class="text-sm text-gray-400">Happy Clients</div>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center">
+                            <div class="text-3xl font-orbitron font-bold text-cyber-accent mb-1">200+</div>
+                            <div class="text-sm text-gray-400">Projects Done</div>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center">
+                            <div class="text-3xl font-orbitron font-bold text-cyber-primary mb-1">50+</div>
+                            <div class="text-sm text-gray-400">Students Trained</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="cyber-btn inline-flex items-center px-8 py-3 bg-gradient-to-r from-cyber-primary to-cyber-secondary rounded-full font-semibold text-cyber-dark hover:shadow-lg hover:shadow-cyber-primary/50 transition-all">
+                        <i class="fas fa-download mr-2"></i>Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 relative bg-cyber-darker/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4">
+                    <span class="gradient-text">My Services</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Professional services tailored to meet your technology needs</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Networking -->
+                <div class="service-card relative rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyber-primary/20 to-cyber-primary/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-network-wired text-3xl text-cyber-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-cyber-primary transition-colors">Network Solutions</h3>
+                    <p class="text-gray-400 mb-6">Complete networking services including LAN/WAN setup, router configuration, network security, and troubleshooting for homes and businesses.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-cyber-primary mr-2"></i>Network Infrastructure Setup</li>
+                        <li><i class="fas fa-check text-cyber-primary mr-2"></i>Router & Switch Configuration</li>
+                        <li><i class="fas fa-check text-cyber-primary mr-2"></i>Network Security & Firewall</li>
+                        <li><i class="fas fa-check text-cyber-primary mr-2"></i>Troubleshooting & Maintenance</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2: Photoshop Design -->
+                <div class="service-card relative rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyber-secondary/20 to-cyber-secondary/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-palette text-3xl text-cyber-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-cyber-secondary transition-colors">Photoshop Design</h3>
+                    <p class="text-gray-400 mb-6">Creative graphic design services including photo editing, banner design, social media graphics, and brand identity creation.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-cyber-secondary mr-2"></i>Photo Editing & Retouching</li>
+                        <li><i class="fas fa-check text-cyber-secondary mr-2"></i>Banner & Poster Design</li>
+                        <li><i class="fas fa-check text-cyber-secondary mr-2"></i>Social Media Graphics</li>
+                        <li><i class="fas fa-check text-cyber-secondary mr-2"></i>Logo & Brand Design</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3: Computer Training -->
+                <div class="service-card relative rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyber-accent/20 to-cyber-accent/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chalkboard-teacher text-3xl text-cyber-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-cyber-accent transition-colors">Computer Training</h3>
+                    <p class="text-gray-400 mb-6">Comprehensive computer training programs for beginners to advanced users, covering essential software and IT skills.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-cyber-accent mr-2"></i>Basic Computer Skills</li>
+                        <li><i class="fas fa-check text-cyber-accent mr-2"></i>Microsoft Office Suite</li>
+                        <li><i class="fas fa-check text-cyber-accent mr-2"></i>Internet & Email Usage</li>
+                        <li><i class="fas fa-check text-cyber-accent mr-2"></i>Software Installation</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4: Hardware Support -->
+                <div class="service-card relative rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-tools text-3xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-green-400 transition-colors">Hardware Support</h3>
+                    <p class="text-gray-400 mb-6">Expert computer hardware diagnosis, repair, and upgrade services to keep your systems running at peak performance.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>PC Building & Assembly</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Hardware Troubleshooting</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Component Upgrades</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>System Optimization</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5: IT Consultation -->
+                <div class="service-card relative rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-yellow-500/20 to-yellow-500/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-lightbulb text-3xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-yellow-400 transition-colors">IT Consultation</h3>
+                    <p class="text-gray-400 mb-6">Strategic IT consulting to help businesses make informed technology decisions and optimize their digital infrastructure.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Technology Assessment</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Solution Planning</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Budget Optimization</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Security Recommendations</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6: CCTV Installation -->
+                <div class="service-card relative rounded-2xl p-8 group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-500/20 to-red-500/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-video text-3xl text-red-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-red-400 transition-colors">CCTV Installation</h3>
+                    <p class="text-gray-400 mb-6">Professional security camera system installation and configuration for residential and commercial properties.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>Camera System Design</li>
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>DVR/NVR Setup</li>
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>Remote Viewing Setup</li>
+                        <li><i class="fas fa-check text-red-400 mr-2"></i>Maintenance & Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4">
+                    <span class="gradient-text">My Skills</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Technologies and tools I work with</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-8 text-cyber-primary">
+                        <i class="fas fa-code mr-3"></i>Technical Skills
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Network Administration</span>
+                                <span class="text-cyber-primary">95%</span>
+                            </div>
+                            <div class="h-3 bg-cyber-dark rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="width: 0%;" data-width="95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Adobe Photoshop</span>
+                                <span class="text-cyber-secondary">90%</span>
+                            </div>
+                            <div class="h-3 bg-cyber-dark rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Hardware Troubleshooting</span>
+                                <span class="text-cyber-accent">92%</span>
+                            </div>
+                            <div class="h-3 bg-cyber-dark rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="width: 0%;" data-width="92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Windows Server</span>
+                                <span class="text-green-400">88%</span>
+                            </div>
+                            <div class="h-3 bg-cyber-dark rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="width: 0%;" data-width="88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">CCTV & Security Systems</span>
+                                <span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="h-3 bg-cyber-dark rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Software & Tools -->
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-8 text-cyber-secondary">
+                        <i class="fas fa-laptop-code mr-3"></i>Software & Tools
+                    </h3>
+                    
+                    <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fab fa-windows text-3xl text-blue-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">Windows</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fas fa-server text-3xl text-green-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">Server</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fas fa-network-wired text-3xl text-cyber-primary mb-2"></i>
+                            <p class="text-xs text-gray-400">Cisco</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fab fa-adobe text-3xl text-red-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">Photoshop</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fas fa-shield-alt text-3xl text-purple-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">Security</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fas fa-wifi text-3xl text-yellow-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">WiFi</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fas fa-hdd text-3xl text-gray-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">Storage</p>
+                        </div>
+                        <div class="glow-border rounded-xl p-4 text-center hover:scale-105 transition-transform">
+                            <i class="fas fa-microchip text-3xl text-orange-400 mb-2"></i>
+                            <p class="text-xs text-gray-400">Hardware</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certifications/Expertise -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-300">Expertise Areas:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-cyber-primary/10 border border-cyber-primary/30 rounded-full text-sm text-cyber-primary">LAN/WAN Setup</span>
+                            <span class="px-3 py-1 bg-cyber-secondary/10 border border-cyber-secondary/30 rounded-full text-sm text-cyber-secondary">MikroTik</span>
+                            <span class="px-3 py-1 bg-cyber-accent/10 border border-cyber-accent/30 rounded-full text-sm text-cyber-accent">Graphic Design</span>
+                            <span class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm text-green-400">IT Training</span>
+                            <span class="px-3 py-1 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400">Tech Support</span>
+                            <span class="px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full text-sm text-red-400">CCTV Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 px-6 relative bg-cyber-darker/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4">
+                    <span class="gradient-text">My Portfolio</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Recent projects and work samples</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="service-card relative rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-video bg-gradient-to-br from-cyber-primary/30 to-cyber-secondary/30 flex items-center justify-center">
+                        <i class="fas fa-network-wired text-6xl text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="px-3 py-1 bg-cyber-primary/20 rounded-full text-xs text-cyber-primary">Networking</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2">Enterprise Network Setup</h3>
+                        <p class="text-gray-400 text-sm">Complete LAN infrastructure setup for local businesses in Tachileik with secure firewall configuration.</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="service-card relative rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-video bg-gradient-to-br from-cyber-secondary/30 to-cyber-accent/30 flex items-center justify-center">
+                        <i class="fas fa-palette text-6xl text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="px-3 py-1 bg-cyber-secondary/20 rounded-full text-xs text-cyber-secondary">Design</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2">Brand Identity Design</h3>
+                        <p class="text-gray-400 text-sm">Complete brand identity including logo, business cards, and social media kit for local startups.</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="service-card relative rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-video bg-gradient-to-br from-cyber-accent/30 to-green-500/30 flex items-center justify-center">
+                        <i class="fas fa-chalkboard-teacher text-6xl text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="px-3 py-1 bg-cyber-accent/20 rounded-full text-xs text-cyber-accent">Training</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2">Computer Literacy Program</h3>
+                        <p class="text-gray-400 text-sm">Conducted computer training workshops for students and professionals in Tachileik region.</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="service-card relative rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-video bg-gradient-to-br from-red-500/30 to-orange-500/30 flex items-center justify-center">
+                        <i class="fas fa-video text-6xl text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="px-3 py-1 bg-red-500/20 rounded-full text-xs text-red-400">Security</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2">CCTV Security System</h3>
+                        <p class="text-gray-400 text-sm">Multi-camera security system installation with remote monitoring for commercial properties.</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="service-card relative rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="aspect-video bg-gradient-to-br from-blue-500/30 to-purple-500/30 flex items-center justify-center">
+                        <i class="fas fa-server text-6xl text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-400">Server</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2">Server Configuration</h3>
+                        <p class="text-gray-400 text-sm">Windows Server deployment and configuration for small to medium businesses.</p>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="service-card relative rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="aspect-video bg-gradient-to-br from-yellow-500/30 to-green-500/30 flex items-center justify-center">
+                        <i class="fas fa-tools text-6xl text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="px-3 py-1 bg-yellow-500/20 rounded-full text-xs text-yellow-400">Hardware</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2">PC Building Service</h3>
+                        <p class="text-gray-400 text-sm">Custom PC builds and hardware upgrades tailored to client requirements and budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4">
+                    <span class="gradient-text">Get In Touch</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Let's work together on your next project</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto rounded-full mt-4"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyber-primary/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-cyber-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p class="text-gray-400">Tachileik, Shan State, Myanmar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyber-secondary/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-cyber-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <a href="mailto:thurein505tzo@gmail.com" class="text-gray-400 hover:text-cyber-primary transition">thurein505tzo@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyber-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-cyber-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <a href="tel:+9509787141083" class="text-gray-400 hover:text-cyber-primary transition">09787141083</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-telegram text-green-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Telegram</h4>
+                                <a href="https://t.me/Thant2Zin7" target="_blank" class="text-gray-400 hover:text-cyber-primary transition">@Thant2Zin7</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="mt-10">
+                        <h4 class="font-semibold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/thantzin27oo" target="_blank" class="social-icon w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition-all">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="https://t.me/Thant2Zin7" target="_blank" class="social-icon w-12 h-12 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 hover:bg-sky-500 hover:text-white transition-all">
+                                <i class="fab fa-telegram-plane text-xl"></i>
+                            </a>
+                            <a href="mailto:thurein505tzo@gmail.com" class="social-icon w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 hover:bg-red-500 hover:text-white transition-all">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                            <a href="tel:+9509787141083" class="social-icon w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 hover:bg-green-500 hover:text-white transition-all">
+                                <i class="fas fa-phone text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="glow-border rounded-2xl p-8">
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Your Name</label>
+                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl text-white" placeholder="Enter your name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Your Email</label>
+                                <input type="email" class="form-input w-full px-4 py-3 rounded-xl text-white" placeholder="Enter your email" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Subject</label>
+                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl text-white" placeholder="What's this about?" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="5" class="form-input w-full px-4 py-3 rounded-xl text-white resize-none" placeholder="Your message..." required></textarea>
+                            </div>
+                            <button type="submit" class="cyber-btn w-full py-4 bg-gradient-to-r from-cyber-primary to-cyber-secondary rounded-xl font-semibold text-cyber-dark hover:shadow-lg hover:shadow-cyber-primary/50 transition-all">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <a href="#" class="font-orbitron text-2xl font-bold gradient-text">KTZ</a>
+                    <p class="text-gray-500 text-sm mt-1">Multi-Specialist IT Professional</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-500 text-sm">© 2026 Ko Thant Zin. All rights reserved.</p>
+                    <p class="text-gray-600 text-xs mt-1">Made with <span class="text-red-500">❤</span> in Tachileik, Myanmar</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-cyber-primary to-cyber-secondary rounded-full flex items-center justify-center text-cyber-dark opacity-0 invisible transition-all z-40 hover:scale-110 hover:shadow-lg hover:shadow-cyber-primary/50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+        });
+        
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+        
+        // Three.js Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('bg-canvas'),
+            antialias: true,
+            alpha: true
+        });
+        
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.z = 30;
+        
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 2000;
+        const posArray = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 100;
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.1,
+            color: 0x00f0ff,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+        
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+        
+        // Create floating geometric shapes
+        const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+        const torusMaterial = new THREE.MeshBasicMaterial({
+            color: 0x7b2cbf,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+        const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+        torus.position.set(-20, 0, -20);
+        scene.add(torus);
+        
+        const icosahedronGeometry = new THREE.IcosahedronGeometry(7, 0);
+        const icosahedronMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00f0ff,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+        const icosahedron = new THREE.Mesh(icosahedronGeometry, icosahedronMaterial);
+        icosahedron.position.set(20, 10, -15);
+        scene.add(icosahedron);
+        
+        const octahedronGeometry = new THREE.OctahedronGeometry(5, 0);
+        const octahedronMaterial = new THREE.MeshBasicMaterial({
+            color: 0xff00ff,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+        const octahedron = new THREE.Mesh(octahedronGeometry, octahedronMaterial);
+        octahedron.position.set(15, -15, -10);
+        scene.add(octahedron);
+        
+        // Mouse movement effect
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+        
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            particlesMesh.rotation.x += 0.0005;
+            particlesMesh.rotation.y += 0.0005;
+            
+            torus.rotation.x += 0.005;
+            torus.rotation.y += 0.005;
+            
+            icosahedron.rotation.x += 0.003;
+            icosahedron.rotation.y += 0.003;
+            
+            octahedron.rotation.x += 0.004;
+            octahedron.rotation.y += 0.004;
+            
+            // Mouse parallax effect
+            particlesMesh.rotation.x += mouseY * 0.0001;
+            particlesMesh.rotation.y += mouseX * 0.0001;
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Typing Effect
+        const titles = [
+            'Network Specialist',
+            'Photoshop Designer',
+            'Computer Instructor',
+            'IT Consultant',
+            'Tech Enthusiast'
+        ];
+        
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+        
+        function typeEffect() {
+            const currentTitle = titles[titleIndex];
+            const typingElement = document.getElementById('typingText');
+            
+            if (isDeleting) {
+                typingElement.textContent = currentTitle.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentTitle.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            // Add cursor effect
+            typingElement.style.borderRight = '3px solid #00f0ff';
+            
+            let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
+            
+            if (!isDeleting && charIndex === currentTitle.length) {
+                typeSpeed = pauseTime;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                titleIndex = (titleIndex + 1) % titles.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeEffect, typeSpeed);
+        }
+        
+        // Start typing effect
+        typeEffect();
+        
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Skill Bars Animation
+        const skillBars = document.querySelectorAll('.skill-bar');
+        
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    bar.style.width = bar.getAttribute('data-width');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateSkillBars);
+        window.addEventListener('load', animateSkillBars);
+        
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Create mailto link with form data
+            const formData = new FormData(this);
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const subject = this.querySelectorAll('input[type="text"]')[1].value;
+            const message = this.querySelector('textarea').value;
+            
+            const mailtoLink = `mailto:thurein505tzo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Opening your email client... Thank you for reaching out!');
+        });
+        
+        // Add active state to nav links based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyber-primary');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-cyber-primary');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
