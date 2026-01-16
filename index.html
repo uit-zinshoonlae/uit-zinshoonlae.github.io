@@ -80,38 +80,38 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
         
-        /* Light Mode - Complete Theme Override */
+        /* Light Mode - Dark Background with Amber Accent */
         html:not(.dark) body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
-            color: #1a202c;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+            color: #e0e0e0;
         }
         
         html:not(.dark) .gradient-bg {
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c) !important;
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e) !important;
             background-size: 400% 400% !important;
         }
         
         html:not(.dark) .tech-grid {
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px) !important;
+                linear-gradient(rgba(205, 133, 63, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(205, 133, 63, 0.05) 1px, transparent 1px) !important;
         }
         
         /* Navigation in Light Mode */
         html:not(.dark) .nav-bg {
-            background: rgba(255, 255, 255, 0.15) !important;
+            background: rgba(26, 26, 46, 0.9) !important;
             backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border-bottom: 1px solid rgba(205, 133, 63, 0.3) !important;
         }
         
         html:not(.dark) nav a,
         html:not(.dark) nav li a,
         html:not(.dark) .nav-link {
-            color: #ffffff !important;
+            color: #e0e0e0 !important;
         }
         
         html:not(.dark) .nav-link:hover {
-            color: #ffd700 !important;
+            color: #cd853f !important;
         }
         
         /* Hero Section Light Mode */
@@ -128,40 +128,40 @@
         }
         
         html:not(.dark) .gradient-text {
-            background: linear-gradient(135deg, #ffd700 0%, #ffffff 50%, #ffd700 100%) !important;
+            background: linear-gradient(135deg, #cd853f 0%, #daa520 50%, #b8860b 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
         }
         
         /* Cards and Boxes Light Mode */
         html:not(.dark) .service-card {
-            background: rgba(255, 255, 255, 0.15) !important;
+            background: rgba(22, 33, 62, 0.8) !important;
             backdrop-filter: blur(20px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            border: 1px solid rgba(205, 133, 63, 0.3) !important;
         }
         
         html:not(.dark) .service-card h3 {
-            color: #ffffff !important;
+            color: #e0e0e0 !important;
         }
         
         html:not(.dark) .service-card p,
         html:not(.dark) .service-card li {
-            color: rgba(255, 255, 255, 0.85) !important;
+            color: rgba(224, 224, 224, 0.8) !important;
         }
         
         html:not(.dark) .service-card:hover {
-            background: rgba(255, 255, 255, 0.25) !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 60px rgba(255, 215, 0, 0.3) !important;
+            background: rgba(22, 33, 62, 0.95) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(205, 133, 63, 0.3) !important;
         }
         
         html:not(.dark) .glow-border {
-            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
-                        linear-gradient(135deg, #ffd700, #ffffff, #ffd700) border-box !important;
+            background: linear-gradient(rgba(22, 33, 62, 0.8), rgba(22, 33, 62, 0.8)) padding-box,
+                        linear-gradient(135deg, #cd853f, #daa520, #b8860b) border-box !important;
             backdrop-filter: blur(10px) !important;
         }
         
         html:not(.dark) .dark-card {
-            background: rgba(255, 255, 255, 0.15) !important;
+            background: rgba(22, 33, 62, 0.8) !important;
             backdrop-filter: blur(20px) !important;
         }
         
@@ -169,97 +169,97 @@
         html:not(.dark) .text-gray-300,
         html:not(.dark) .text-gray-400,
         html:not(.dark) .text-gray-500 {
-            color: rgba(255, 255, 255, 0.85) !important;
+            color: rgba(224, 224, 224, 0.85) !important;
         }
         
         html:not(.dark) .text-gray-600 {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: rgba(224, 224, 224, 0.7) !important;
         }
         
         html:not(.dark) p {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: rgba(224, 224, 224, 0.9) !important;
         }
         
         html:not(.dark) label {
-            color: #ffffff !important;
+            color: #e0e0e0 !important;
         }
         
         /* Social Icons Light Mode */
         html:not(.dark) .social-icon {
-            border-color: rgba(255, 255, 255, 0.5) !important;
-            color: #ffffff !important;
+            border-color: rgba(205, 133, 63, 0.5) !important;
+            color: #cd853f !important;
         }
         
         html:not(.dark) .social-icon:hover {
-            background: #ffd700 !important;
-            border-color: #ffd700 !important;
-            color: #1a202c !important;
+            background: #cd853f !important;
+            border-color: #cd853f !important;
+            color: #1a1a2e !important;
         }
         
         /* Form Inputs Light Mode */
         html:not(.dark) .form-input {
-            background: rgba(255, 255, 255, 0.15) !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-            color: #ffffff !important;
+            background: rgba(22, 33, 62, 0.8) !important;
+            border: 1px solid rgba(205, 133, 63, 0.3) !important;
+            color: #e0e0e0 !important;
         }
         
         html:not(.dark) .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: rgba(224, 224, 224, 0.5) !important;
         }
         
         html:not(.dark) .form-input:focus {
-            border-color: #ffd700 !important;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+            border-color: #cd853f !important;
+            box-shadow: 0 0 20px rgba(205, 133, 63, 0.4) !important;
         }
         
         /* Buttons Light Mode */
         html:not(.dark) .cyber-btn {
-            background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
-            color: #1a202c !important;
+            background: linear-gradient(135deg, #cd853f, #b8860b) !important;
+            color: #1a1a2e !important;
         }
         
         html:not(.dark) .cyber-btn:hover {
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5) !important;
+            box-shadow: 0 10px 30px rgba(205, 133, 63, 0.5) !important;
         }
         
         html:not(.dark) a.border-cyber-primary {
-            border-color: #ffffff !important;
-            color: #ffffff !important;
+            border-color: #cd853f !important;
+            color: #cd853f !important;
         }
         
         html:not(.dark) a.border-cyber-primary:hover {
-            background: rgba(255, 255, 255, 0.2) !important;
+            background: rgba(205, 133, 63, 0.2) !important;
         }
         
         /* Section Backgrounds Light Mode */
         html:not(.dark) .dark-bg,
         html:not(.dark) .bg-cyber-darker\/50 {
-            background: rgba(0, 0, 0, 0.1) !important;
+            background: rgba(15, 52, 96, 0.5) !important;
         }
         
         /* Skills Section Light Mode */
         html:not(.dark) .skill-bar {
-            background: linear-gradient(90deg, #ffd700, #ffffff) !important;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+            background: linear-gradient(90deg, #cd853f, #daa520) !important;
+            box-shadow: 0 0 20px rgba(205, 133, 63, 0.5) !important;
         }
         
         html:not(.dark) .bg-cyber-dark {
-            background: rgba(255, 255, 255, 0.2) !important;
+            background: rgba(22, 33, 62, 0.6) !important;
         }
         
         /* Info Cards Light Mode */
         html:not(.dark) .glow-border div {
-            color: #ffffff !important;
+            color: #e0e0e0 !important;
         }
         
         /* Portfolio Items Light Mode */
         html:not(.dark) .service-card .aspect-video {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+            background: linear-gradient(135deg, rgba(205, 133, 63, 0.2), rgba(184, 134, 11, 0.1)) !important;
         }
         
         html:not(.dark) .service-card span {
-            background: rgba(255, 255, 255, 0.2) !important;
-            color: #ffffff !important;
+            background: rgba(205, 133, 63, 0.2) !important;
+            color: #cd853f !important;
         }
         
         /* Contact Section Light Mode */
@@ -270,7 +270,7 @@
         html:not(.dark) .bg-blue-600\/20,
         html:not(.dark) .bg-sky-500\/20,
         html:not(.dark) .bg-red-500\/20 {
-            background: rgba(255, 255, 255, 0.15) !important;
+            background: rgba(205, 133, 63, 0.15) !important;
         }
         
         html:not(.dark) .text-cyber-primary,
@@ -280,30 +280,30 @@
         html:not(.dark) .text-yellow-400,
         html:not(.dark) .text-red-400,
         html:not(.dark) .text-blue-400 {
-            color: #ffd700 !important;
+            color: #cd853f !important;
         }
         
         /* Footer Light Mode */
         html:not(.dark) footer {
-            border-color: rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(205, 133, 63, 0.3) !important;
         }
         
         html:not(.dark) footer p {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(224, 224, 224, 0.8) !important;
         }
         
         /* Mobile Menu Light Mode */
         html:not(.dark) .mobile-menu {
-            background: rgba(102, 126, 234, 0.95) !important;
+            background: rgba(26, 26, 46, 0.98) !important;
             backdrop-filter: blur(20px) !important;
         }
         
         html:not(.dark) .mobile-menu a {
-            color: #ffffff !important;
+            color: #e0e0e0 !important;
         }
         
         html:not(.dark) .mobile-menu a:hover {
-            color: #ffd700 !important;
+            color: #cd853f !important;
         }
         
         /* 3D Canvas Light Mode */
@@ -317,49 +317,49 @@
         
         /* Back to Top Button Light Mode */
         html:not(.dark) #backToTop {
-            background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
-            color: #1a202c !important;
+            background: linear-gradient(135deg, #cd853f, #b8860b) !important;
+            color: #1a1a2e !important;
         }
         
         /* Scrollbar Light Mode */
         html:not(.dark) ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1) !important;
+            background: rgba(22, 33, 62, 0.8) !important;
         }
         
         html:not(.dark) ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #ffd700, #ffffff) !important;
+            background: linear-gradient(180deg, #cd853f, #b8860b) !important;
         }
         
         /* Loader Light Mode */
         html:not(.dark) .loader {
-            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
         }
         
         /* Profile Image Light Mode */
         html:not(.dark) .profile-3d::before {
-            background: linear-gradient(135deg, #ffd700, #ffffff, #ffd700, #ffffff) !important;
+            background: linear-gradient(135deg, #cd853f, #daa520, #b8860b, #cd853f) !important;
         }
         
         html:not(.dark) .profile-3d-inner {
-            border-color: #ffd700 !important;
+            border-color: #cd853f !important;
         }
         
         html:not(.dark) .glow-box {
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 255, 255, 0.3) !important;
+            box-shadow: 0 0 30px rgba(205, 133, 63, 0.5), 0 0 60px rgba(184, 134, 11, 0.3) !important;
         }
         
         /* Glitch Effect Light Mode */
         html:not(.dark) .glitch::before {
-            color: #ffd700 !important;
+            color: #cd853f !important;
         }
         
         html:not(.dark) .glitch::after {
-            color: #ffffff !important;
+            color: #daa520 !important;
         }
         
         /* Particles Light Mode */
         html:not(.dark) .particle {
-            background: #ffffff !important;
+            background: #cd853f !important;
         }
         
         /* Custom Scrollbar */
@@ -638,8 +638,8 @@
         }
         
         html:not(.dark) .theme-toggle {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            border-color: #ff8c00;
+            background: linear-gradient(135deg, #cd853f, #b8860b);
+            border-color: #b8860b;
         }
         
         .theme-toggle-circle {
